@@ -66,6 +66,21 @@ public class Configuration {
 
     }
 
+    public static SqlParser.Config getParserConfigV1(EngineType engineType) {
+        CalciteConnectionConfig config = new CalciteConnectionConfigImpl(configProperties);
+        SemanticSqlDialect sqlDialect = SqlDialectFactory.getSqlDialect(engineType);
+
+        SqlParser.ConfigBuilder parserConfig = SqlParser.configBuilder();
+        parserConfig.setCaseSensitive(config.caseSensitive());
+        parserConfig.setUnquotedCasing(config.unquotedCasing());
+        parserConfig.setQuotedCasing(config.quotedCasing());
+        parserConfig.setParserFactory(SqlParserImpl.FACTORY).setCaseSensitive(false)
+                .setIdentifierMaxLength(Integer.MAX_VALUE)
+                .setConformance(sqlDialect.getConformance())
+                .setLex(Lex.BIG_QUERY);
+        return parserConfig.build();
+    }
+
     public static SqlParser.Config getParserConfig(EngineType engineType) {
         CalciteConnectionConfig config = new CalciteConnectionConfigImpl(configProperties);
         SemanticSqlDialect sqlDialect = SqlDialectFactory.getSqlDialect(engineType);
@@ -84,7 +99,7 @@ public class Configuration {
                 .setUnquotedCasing(Casing.TO_UPPER)
                 .setConformance(sqlDialect.getConformance())
                 .setLex(Lex.BIG_QUERY);
-        if (!EngineType.CLICKHOUSE.equals(engineType)) {
+        if (!EngineType.CLICKHOUSE.equals(engineType) || !EngineType.H2.equals(engineType)) {
             parserConfig = parserConfig.setQuotedCasing(Casing.TO_LOWER);
             parserConfig = parserConfig.setUnquotedCasing(Casing.TO_LOWER);
         }

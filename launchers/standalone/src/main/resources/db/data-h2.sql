@@ -25,14 +25,14 @@ MERGE INTO singer (singer_name,act_area, song_name,genre,js_play_cnt,down_cnt,fa
 MERGE INTO singer (singer_name,act_area, song_name,genre,js_play_cnt,down_cnt,favor_cnt) VALUES ('Taylor Swift', '欧美','Love Story','流行',1000000,1000000,1000000);
 
 ---demo data for semantic and chat
-MERGE INTO s2_user_department (user_name, department) values ('jack','HR');
+MERGE INTO s2_User_Department (user_name, department) values ('jack','HR');
 
-MERGE INTO s2_user_department (user_name, department) values ('jack','HR');
-MERGE INTO s2_user_department (user_name, department) values ('tom','sales');
-MERGE INTO s2_user_department (user_name, department) values ('lucy','marketing');
-MERGE INTO s2_user_department (user_name, department) values ('john','strategy');
-MERGE INTO s2_user_department (user_name, department) values ('alice','sales');
-MERGE INTO s2_user_department (user_name, department) values ('dean','marketing');
+MERGE INTO s2_User_Department (user_name, department) values ('jack','HR');
+MERGE INTO s2_User_Department (user_name, department) values ('tom','sales');
+MERGE INTO s2_User_Department (user_name, department) values ('lucy','marketing');
+MERGE INTO s2_User_Department (user_name, department) values ('john','strategy');
+MERGE INTO s2_User_Department (user_name, department) values ('alice','sales');
+MERGE INTO s2_User_Department (user_name, department) values ('dean','marketing');
 
 INSERT INTO s2_pv_uv_statis (imp_date, user_name, page) VALUES (CURRENT_DATE(), 'lucy', 'p1');
 INSERT INTO s2_pv_uv_statis (imp_date, user_name, page) VALUES (CURRENT_DATE(), 'jack', 'p1');

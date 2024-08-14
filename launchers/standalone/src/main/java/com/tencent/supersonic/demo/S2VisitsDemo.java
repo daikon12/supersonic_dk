@@ -137,7 +137,7 @@ public class S2VisitsDemo extends S2BaseDemo {
     public void addSampleChats(Integer agentId) {
         Long chatId = chatManageService.addChat(user, "样例对话1", agentId);
 
-        chatQueryService.parseAndExecute(chatId.intValue(), agentId, "超音数 访问次数");
+//        chatQueryService.parseAndExecute(chatId.intValue(), agentId, "超音数 访问次数");
         chatQueryService.parseAndExecute(chatId.intValue(), agentId, "按部门统计");
         chatQueryService.parseAndExecute(chatId.intValue(), agentId, "查询近30天");
         chatQueryService.parseAndExecute(chatId.intValue(), agentId, "alice 停留时长");
@@ -216,7 +216,7 @@ public class S2VisitsDemo extends S2BaseDemo {
         modelDetail.setFields(fields);
         modelDetail.setMeasures(Collections.emptyList());
         modelDetail.setQueryType("sql_query");
-        modelDetail.setSqlQuery("select user_name,department from s2_user_department");
+        modelDetail.setSqlQuery("select user_name,department from s2_User_Department");
         modelReq.setModelDetail(modelDetail);
         return modelService.createModel(modelReq, user);
     }

@@ -390,12 +390,12 @@ CREATE TABLE IF NOT EXISTS s2_agent
 
 
 -------demo for semantic and chat
-CREATE TABLE IF NOT EXISTS `s2_user_department` (
+CREATE TABLE IF NOT EXISTS `s2_User_Department` (
     `user_name` varchar(200) NOT NULL,
     `department` varchar(200) NOT NULL, -- department of user
      PRIMARY KEY (`user_name`,`department`)
     );
-COMMENT ON TABLE s2_user_department IS 'user_department_info';
+COMMENT ON TABLE s2_User_Department IS 'user_department_info';
 
 CREATE TABLE IF NOT EXISTS `s2_pv_uv_statis` (
     `imp_date` varchar(200) NOT NULL,
